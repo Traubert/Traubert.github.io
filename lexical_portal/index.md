@@ -46,19 +46,24 @@ While the graph may be zoomed in using either the mouse wheel or the slider on t
 
 ## The sidebar
 
-[TODO]
+The sidebar shows information for the most recently active word, or if a word hasn't been activated yet, it's hidden. You can also hide or show it by clicking on the orange arrows poking out from it.
 
-### Ego graphs
+### Linked words
 
-[TODO]
-
-### Concordances
-
-[TODO]
+Under the headings "Linked words" and "Linked proper nouns" you will find anchor links. Clicking these activates a new word and centers the view on that word.
 
 ### Browsing history
 
-[TODO]
+As you navigate along the linked words (or otherwise), you may want to get back to where you were before. This can be done using the forward and backward arrows at the top of the side panel. If there is browseable history in either direction, the arrow is blue, otherwise it is black.
+
+### Concordances
+
+Each word is linked to a corpus search on The Language Bank of Finland's Korp search engine. Click on "Search in Korp", and a concordance view for the word will appear (allow some time for the search to be completed). This search view contains a great deal of additional information about the matching texts.
+
+### Ego graphs
+
+When a word is active, its linked words may be all over the main graph, making it hard to get an overview. A condensed view may be accessed by clicking on "Go to this word's ego graph". This will cause the browser to navigate to a new page, so you will have to click the browser's back button to return to the previous view.
+
 
 ## Downloading the data
 
