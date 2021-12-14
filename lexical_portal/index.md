@@ -20,8 +20,6 @@ When a group of words cluster together, a program assigns a color to them. This 
 
 While the graph may be zoomed in using either the mouse wheel or the slider on the bottom left of the page, the main way to navigate is via the autocompleting search bar at the top. The autocompletion generates a pop-up menu, with two listings: those words ("Nodes") which contain the search term as a substring, and those words whose *translations* contain the search term as a substring. Thus, if you are browsing the Akkadian-English portal, and type *horse*, you will find Akkadian words whose translations contain "horse", such as *sisû* and *tarbaṣu* under the *Translations* heading. The autocomplete normalises to the Latin alphabet as used in English, so you can write "tarbasu" and find find *tarbaṣu* that way.
 
-![Searching](search.mp4)
-
 <video controls>
-  <source src="search.mp4" type="video/mp4">
+  <source src="search.mp4" width="480" type="video/mp4">
 </video>
