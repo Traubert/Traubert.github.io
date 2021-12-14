@@ -30,7 +30,11 @@ When a group of words cluster together, a program assigns a color to them. This 
 
 ### Filtering on clusters
 
-[TODO]
+If you'd like to get a view of just one cluster (in this case, indicated by colour), you can do that selecting a word in that cluster (whereupon only words connected to that word, but from any cluster, remain), then deselecting it by clicking on an empty spot, and finally clicking on "Toggle filter on this colour" in the sidepanel.
+
+<video width="640" controls>
+  <source src="filter.mp4" type="video/mp4">
+</video>
 
 ## Searching
 
