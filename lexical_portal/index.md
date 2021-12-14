@@ -16,6 +16,8 @@ The highlighted word has its translation in parentheses; in this Akkadian-Englis
 
 ### Hide edges
 
+[TODO]
+
 ### Clusters
 
 When a group of words cluster together, a program assigns a color to them. This color has absolutely no predetermined linguistic significance, although in many cases clusters are suggestive of shared typical usage. For example, in the current (as of December 2021) rendering, yellow dots to the right of the graph have many nouns related to activity, occupation and social position (*mayor*, *rider*, *brewer*, *lady#house*), some proper nouns, and some verbs. Other cluster may have predominately proper nouns, or predominately verbs.
@@ -23,6 +25,8 @@ When a group of words cluster together, a program assigns a color to them. This 
 ![A cluster of words](yellow.png)
 
 ### Filtering on clusters
+
+[TODO]
 
 ## Searching
 
@@ -34,10 +38,24 @@ While the graph may be zoomed in using either the mouse wheel or the slider on t
 
 ## The sidebar
 
+[TODO]
+
 ### Ego graphs
+
+[TODO]
 
 ### Concordances
 
+[TODO]
+
 ### Browsing history
 
+[TODO]
+
 ## Downloading the data
+
+[TODO]
+
+## About the data pipeline
+
+[TODO]
