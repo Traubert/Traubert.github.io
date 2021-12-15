@@ -18,9 +18,9 @@ The highlighted word has its translation in parentheses; in this Akkadian-Englis
 
 When all words are active and you're in a populated part of the graph, it can look very cluttered and render slowly. You can hide the edges by toggling the "hide edges" button, as shown here:
 
-![Showing edges](show_edges.png)
-
-![Hiding edges](hide_edges.png)
+<video width="900" controls>
+  <source src="hide_edges.mp4" type="video/mp4">
+</video>
 
 ### Clusters
 
