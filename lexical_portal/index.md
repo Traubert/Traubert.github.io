@@ -50,7 +50,7 @@ The sidebar shows information for the most recently active word, or if a word ha
 
 ![Sidebar](sidebar.png)
 
-## Attributes
+### Attributes
 
 Some details about the active word is listed under "Attributes". Some items are related to the mathematical properties of the graph:
 
@@ -60,16 +60,16 @@ Some details about the active word is listed under "Attributes". Some items are 
 
 Also listed under this heading is the translation of the word, if available, and two links.
 
-### Concordances
+#### Concordances
 
 Each word is linked to a corpus search on The Language Bank of Finland's Korp search engine. Click on "Search in Korp", and a concordance view for the word will appear (allow some time for the search to be completed). This search view contains a great deal of additional information about the matching texts.
 
-### Ego graphs
+#### Ego graphs
 
 When a word is active, its linked words may be all over the main graph, making it hard to get an overview. A condensed view may be accessed by clicking on "Go to this word's ego graph". This will cause the browser to navigate to a new page, so you will have to click the browser's back button to return to the previous view.
 
 
-## Linked words
+### Linked words
 
 Under the headings "Linked words" and "Linked proper nouns" you will find anchor links. Clicking these activates a new word and centers the view on that word.
 
@@ -81,9 +81,26 @@ As you navigate along the linked words (or otherwise), you may want to get back 
   <source src="browsing.mp4" type="video/mp4">
 </video>
 
-## Downloading the data
+## The header
+
+Along the header, there are three useful navigation links: "Main page", which takes you to the ANEE website describing the lexical portal, with references to publications; "Main graph", which takes you back to the main graph from whatever subsection you are in, like an ego graph, and "Download".
+
+### Downloading the data
 
 Each graph view, including the ego graphs, has a link in the header with the text "Download". The link goes to a `.gexf` file with the data you are currently viewing.
 
 ## About the data pipeline
 
+Lexical data flows roughly as follows:
+
+1. Corpus selection and preprocessing
+2. A computational process (such as PMI or FastText) calculates relationships between words from the corpora
+  * See [pmi-embeddings](https://github.com/asahala/pmi-embeddings) by ANEE team member Aleksi Sahala
+3. A graph processing algorithm (currently ForceAtlas2) calculates a visual layout for the words and another graph processing algorithm assigns words to "communities" (shown by color); node degrees etc. are calculated
+  * See [gephi](https://gephi.org/), [scikit-network](https://github.com/sknetwork-team/scikit-network)
+4. Supplemental information, such as concordance links and translations are inserted into the graph files
+  * See [our own scripts](https://github.com/Traubert/nlp-tools/tree/master/gexf)
+5. Ego graphs are calculated
+  * `scikit-network` and our own scripts
+6. Our fork of `gexf-js`, with various custom features, is used to display the results.
+  * available [here](https://github.com/Traubert/anee-lexical-portal) but not really supported for outside use
