@@ -48,13 +48,17 @@ While the graph may be zoomed in using either the mouse wheel or the slider on t
 
 The sidebar shows information for the most recently active word, or if a word hasn't been activated yet, it's hidden. You can also hide or show it by clicking on the orange arrows poking out from it.
 
-### Linked words
+![Sidebar](sidebar.png)
 
-Under the headings "Linked words" and "Linked proper nouns" you will find anchor links. Clicking these activates a new word and centers the view on that word.
+## Attributes
 
-### Browsing history
+Some details about the active word is listed under "Attributes". Some items are related to the mathematical properties of the graph:
 
-As you navigate along the linked words (or otherwise), you may want to get back to where you were before. This can be done using the forward and backward arrows at the top of the side panel. If there is browseable history in either direction, the arrow is blue, otherwise it is black.
+1. Degree: how many words this word is linked to.
+2. Weighted degree: The sum of the weights (or strengths) of the links between this word and other words. For example, if the word in question is linked to one word with an arc of weight 6, and another with weight 7, it has degree **2** and weighted degree **13**.
+3. Community number, or modularity class: which cluster, indicated by colors in the main view, this word was assigned to.
+
+Also listed under this heading is the translation of the word, if available, and two links.
 
 ### Concordances
 
@@ -65,10 +69,21 @@ Each word is linked to a corpus search on The Language Bank of Finland's Korp se
 When a word is active, its linked words may be all over the main graph, making it hard to get an overview. A condensed view may be accessed by clicking on "Go to this word's ego graph". This will cause the browser to navigate to a new page, so you will have to click the browser's back button to return to the previous view.
 
 
+## Linked words
+
+Under the headings "Linked words" and "Linked proper nouns" you will find anchor links. Clicking these activates a new word and centers the view on that word.
+
+### Browsing history
+
+As you navigate along the linked words (or otherwise), you may want to get back to where you were before. This can be done using the forward and backward arrows at the top of the side panel. If there is browseable history in either direction, the arrow is blue, otherwise it is black.
+
+<video width="900" controls>
+  <source src="browsing.mp4" type="video/mp4">
+</video>
+
 ## Downloading the data
 
-[TODO]
+Each graph view, including the ego graphs, has a link in the header with the text "Download". The link goes to a `.gexf` file with the data you are currently viewing.
 
 ## About the data pipeline
 
-[TODO]
