@@ -23,10 +23,7 @@ What this looks like in CoNLL-U:
 
 What this whole sentence is:
 
-```
-# sent_id = Q004456-1
-# text = ēkal Aššur-naṣir-apli iššak Aššur nišīt Enlil u Ninurta narām Anim u Dagan kašūš ilāni rabûti šarru dannu šar kiššati šar māt Aššur mār Tukulti-Ninurta šarri rabê šarri danni šar kiššati šar māt Aššur mār Adad-nerari šar kiššati šar māt Aššurma eṭlu qardu ša ina tukulti Aššur bēlišu ittallakuma ina malkī ša kibrāt erbetta šāninšu lā īšû rēʾû tabrâte lā ādiru tuqumti edû gapšu ša māhira lā īšû šar mušakniš lā kanšūtešu ša naphar kiššat nišī ipēlu zikaru dannu mukabbis kišād ayyābīšu dāʾiš kullat nakirē muparriru kiṣir multarhī šarru ša ina tukulti ilāni rabûti bēlēšu ittallakuma mātāti kalîšina qāssu ikšud huršānī kalûšunu ipēluma bilatsunu imhuru ṣābit līṭē šākin līte
-```
+ēkal Aššur-naṣir-apli iššak Aššur nišīt Enlil u Ninurta narām Anim u Dagan kašūš ilāni rabûti šarru dannu šar kiššati šar māt Aššur mār Tukulti-Ninurta šarri rabê šarri danni šar kiššati šar māt Aššur mār Adad-nerari šar kiššati šar māt Aššurma eṭlu qardu ša ina tukulti Aššur bēlišu ittallakuma ina malkī ša kibrāt erbetta šāninšu lā īšû rēʾû tabrâte lā ādiru tuqumti edû gapšu ša māhira lā īšû šar mušakniš *lā kanšūtešu* ša naphar kiššat nišī ipēlu zikaru dannu mukabbis kišād ayyābīšu dāʾiš kullat nakirē muparriru kiṣir multarhī šarru ša ina tukulti ilāni rabûti bēlēšu ittallakuma mātāti kalîšina qāssu ikšud huršānī kalûšunu ipēluma bilatsunu imhuru ṣābit līṭē šākin līte
 
 Other cases where this is probably also a problem: lā mēna, lā pādû, lā māgirī, lā šanān, lā ādiru etc. We must reanalyse these forms as two tokens with some syntactic relationship between them.
 
@@ -59,10 +56,9 @@ This looks like:
 
 And the whole sentence is
 
-```
-# sent_id = Q00445-1
-# text = ana Ninurta gešri dandanni ṣīri ašarēd ilāni qardu šarhu gitmālu ša ina tāhāzi lā iššannanu tībušu aplu rēštû hāmim tuqmāte bukur Nudimmud qurād Igigi lēʾû malik ilāni ilitti Ekur mukīl markas šamê erṣeti pētû nagbē kābisi erṣeti rapašti ilu ša ina baluššu purussê šamê u erṣeti lā ipparrasu munnarbu ekdu ša lā enû qibīt pîšu ašarēd kibrāti nādin haṭṭi u purussê ana naphar kal ālāni gugallu šamru ša lā uttakkaru siqir šaptišu lēʾû rapšu apkal ilāni muttallu Utulu bēl bēlē ša kippat šamê u erṣeti qātuššu paqdu šar tamhāri ālilu ša tuqmatu ītallu šulluṭu gitmālu bēl nagbē u tâmāti ezzu lā pādû ša tībušu abūbu sāpin māt nakirē mušamqit targīgī ilu šarhu ša lā enû ištiššu nūr šamê erṣeti mušpardû qereb apsî muʾabbit lemnūti mušakniš lā māgirī muhalliq zayyārī ša ina puhur ilāni siqiršu ilu mamma lā innû qā’iš balāṭi ilu rēmēnû ša sīpûšu ṭāb āšib Kalhi bēli rabê bēliya
-```
+
+ana Ninurta gešri dandanni ṣīri ašarēd ilāni qardu šarhu gitmālu *ša ina tāhāzi lā iššannanu tībušu* aplu rēštû hāmim tuqmāte bukur Nudimmud qurād Igigi lēʾû malik ilāni ilitti Ekur mukīl markas šamê erṣeti pētû nagbē kābisi erṣeti rapašti ilu ša ina baluššu purussê šamê u erṣeti lā ipparrasu munnarbu ekdu ša lā enû qibīt pîšu ašarēd kibrāti nādin haṭṭi u purussê ana naphar kal ālāni gugallu šamru ša lā uttakkaru siqir šaptišu lēʾû rapšu apkal ilāni muttallu Utulu bēl bēlē ša kippat šamê u erṣeti qātuššu paqdu šar tamhāri ālilu ša tuqmatu ītallu šulluṭu gitmālu bēl nagbē u tâmāti ezzu lā pādû ša tībušu abūbu sāpin māt nakirē mušamqit targīgī ilu šarhu ša lā enû ištiššu nūr šamê erṣeti mušpardû qereb apsî muʾabbit lemnūti mušakniš lā māgirī muhalliq zayyārī ša ina puhur ilāni siqiršu ilu mamma lā innû qā’iš balāṭi ilu rēmēnû ša sīpûšu ṭāb āšib Kalhi bēli rabê bēliya
+
 
 This is about the pronoun _ša_ and the noun _tībušu_ being marked as subjects in the indicative verb _iššannanu_. Is _ša_ here in fact a [relativizer](https://universaldependencies.org/workgroups/newdoc/relative_clauses.html)? If so, is it perhaps a possessive modifier or some other kind of modifier? Elsewhere in the corpus, when it is a PRON and REL, it has always been syntactically analysed as either subject, object or oblique nominal. Or we could analyse _ša_ as the subject and _tībušu_ as the [relative clause modifier](https://universaldependencies.org/u/dep/acl-relcl.html), which would technically work, but would probably not be true to the intended meaning.
 
