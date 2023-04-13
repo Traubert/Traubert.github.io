@@ -20,11 +20,12 @@ OSVersion: jammy
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 %post
-	# Install important software
+	# Install software via apt
 	apt-get update
 	apt-get -y install vim python3 python3-lxml zip
 
 %files
+	# Copy files from build system to container
 	filter.py /usr/local/bin/filter
 ```
 
