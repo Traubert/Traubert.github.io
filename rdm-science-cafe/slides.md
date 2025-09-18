@@ -34,7 +34,7 @@ lang: fi
 * ANEE: Ancient Near East Empires, Suomen Akatemian huippuyksikkö 2018-2025
   * Muinainen (ensimmäinen vuosituhat eKr.) lähi-itä (Mesopotamia, "kaksoisvirran maa")
   * Digihumanismi, arkeologia, yhteiskuntatieteelliset teoriat
-  * Tero Alstola, Saana Svärd, Aleksi Sahala, Eleanor Bennett ym.
+  * Tero Alstola, Saana Svärd, Krister Lindén, Aleksi Sahala, Eleanor Bennett ym.
 
 # Tutkimuksen tekijät
 
@@ -166,7 +166,7 @@ lang: fi
 
 * Sanaupotukset muodostavat yleensä n. 100-ulotteisen avaruuden
 
-* PMI-parit muodostavat verkoston, jossa on N^N kaarta
+* PMI-parit muodostavat verkoston, jossa on N^N kaarta, eivätkä ne ole avaruudellisessa suhteessa keskenään
 
 # Demo: ulotteisuus
 
@@ -191,6 +191,8 @@ lang: fi
 <img src="graphs.png" height=520px/>
 
 # Demo: ANEE-portaalit
+
+* <a href="https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires/anee-lexical-networks-v20">Leksikaaliset portaalit ANEE:n sivuilla</a>
 
 # Sovellukset
 
