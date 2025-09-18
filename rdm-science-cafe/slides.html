@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Muinaiset kielet, sanasemantiikka ja laskennalliset
+menetelmät</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/theme/black.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level1">
+
+<style>
+.container{
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+.compress {
+  font-size: .75em;
+}
+.reveal {
+  --r-heading1-size: 2.0em;
+}
+
+:root figcaption {
+  font-size: 0.5em;
+}
+
+:root verticaltext {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+</style>
+</section>
+<section
+id="muinaiset-kielet-sanasemantiikka-ja-laskennalliset-menetelmät"
+class="slide level1 title">
+<h1 class="title">Muinaiset kielet, sanasemantiikka ja laskennalliset
+menetelmät</h1>
+</section>
+<section id="tutkimuksen-tekijät" class="slide level1">
+<h1>Tutkimuksen tekijät</h1>
+<ul>
+<li>ANEE: Ancient Near East Empires, Suomen Akatemian huippuyksikkö
+2018-2025
+<ul>
+<li>Muinainen (ensimmäinen vuosituhat eKr.) lähi-itä (Mesopotamia,
+“kaksoisvirran maa”)</li>
+<li>Digihumanismi, arkeologia, yhteiskuntatieteelliset teoriat</li>
+<li>Tero Alstola, Saana Svärd, Aleksi Sahala, Eleanor Bennett ym.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tutkimuksen-tekijät-1" class="slide level1">
+<h1>Tutkimuksen tekijät</h1>
+<ul>
+<li><p>Minä (Sam Hardwick)</p></li>
+<li><p><em>En</em> assyriologi, vaan kieliteknologi</p></li>
+<li><p>Silloin HY:llä, nyt CSC:llä kehittämässä Kielipankkia</p></li>
+</ul>
+</section>
+<section id="akkadin-kieli" class="slide level1">
+<h1>Akkadin kieli</h1>
+<ul>
+<li><p>Kuuluu kuolleeseen itäseemiläisten kielten perheeseen</p></li>
+<li><p>Käytössä n. 2500 eKr. - 500 eKr.</p></li>
+<li><p>Vaikutti vahvasti aramean kieleen, jolla lopulta
+korvautui</p></li>
+<li><p>Gilgamešin eepos</p></li>
+</ul>
+<!-- ::: {.container} -->
+<!-- :::: {.col} -->
+<!-- :::: -->
+<!-- :::: {.col} -->
+<!-- :::: -->
+<!-- ::: -->
+<!-- <img src="Semitic_languages.svg"> -->
+<!-- *  -->
+</section>
+<section id="akkadin-kieli-1" class="slide level1">
+<h1>Akkadin kieli</h1>
+<div class="compress">
+<table>
+<thead>
+<tr>
+<th>akkadi</th>
+<th>heprea</th>
+<th>arabia</th>
+<th>suomi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bītum</td>
+<td>báyit (בַּיִת)</td>
+<td>bayt (بَيْت)</td>
+<td>talo</td>
+</tr>
+<tr>
+<td>šarrum</td>
+<td>śar (שַׂר)</td>
+<td>sarī (سَرِيّ)</td>
+<td>kuningas / prinssi / viranomainen</td>
+</tr>
+<tr>
+<td>ilum</td>
+<td>ʾēl (אֵל)</td>
+<td>ilāh (إلٰه) → Allāh (الله)</td>
+<td>jumala</td>
+</tr>
+<tr>
+<td>šulmu</td>
+<td>šālōm (שָׁלוֹם)</td>
+<td>salām (سلام)</td>
+<td>rauha, hyvinvointi</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nuolenpääkirjoitus" class="slide level1">
+<h1>Nuolenpääkirjoitus</h1>
+<ul>
+<li><p>Meille säilynyt versio kirjoitetusta akkadista on
+nuolenpääkirjoitus, savitauluihin painettuja kolmio- ja
+viivamuotoja</p></li>
+<li><p>Logosyllabinen järjestelmä: joitain sanoja vastaa logogrammi,
+(“kuva”), muut kirjoitetaan tavumerkeillä</p></li>
+<li><p>Lainaa sumerista, alueen aiemmasta valtakielestä, joka on
+isolaatti mutta säilyi seremoniallisessa käytössä itsenäisesti</p></li>
+</ul>
+</section>
+<section id="nuolenpääkirjoitus-1" class="slide level1">
+<h1>Nuolenpääkirjoitus</h1>
+<figure>
+<img src="ashurbanipal_egyptian_war_1.png" height=450px/>
+<figcaption>
+Assurbanipalin sotaretki Egyptissä
+</figcaption>
+</figure>
+</section>
+<section id="nuolenpääkirjoitus-2" class="slide level1">
+<h1>Nuolenpääkirjoitus</h1>
+<ul>
+<li><p>Savitauluja on säilynyt yllättävän suuri määrä, n. 500
+000</p></li>
+<li><p>Niistä on translitteroitu, käännetty ja julkaistu vain pieni osa,
+n. 10%</p></li>
+</ul>
+</section>
+<section id="mesopotamia" class="slide level1">
+<h1>Mesopotamia</h1>
+<figure>
+<img src="Neo-Babylonian_Empire_under_Nabonidus_map.png" height=500px/>
+<figcaption>
+Uus-Babylonian valtakunta n. 550 eKr.
+</figcaption>
+</figure>
+</section>
+<section id="mesopotamia-1" class="slide level1">
+<h1>Mesopotamia</h1>
+<ul>
+<li>Sumerin kaupunkivaltiot 5500 - 1800 eKr (<em>Ur</em>)</li>
+<li>Akkadin valtakunta 2300 - 2100 eKr (<em>Sargon
+akkadilainen</em>)</li>
+</ul>
+<p><img src="Sargon_of_Akkad_(1936).jpg" height=300px/></p>
+</section>
+<section id="mesopotamia-2" class="slide level1">
+<h1>Mesopotamia</h1>
+<ul>
+<li>Assyrian ja uus-Assyrian valtakunta 2000 - 600 eKr.
+(<em>Tukulti-Ninurta</em>, <em>Tiglath-Pileser</em>,
+<em>Ashurnipal</em>, <em>Nineven kirjasto</em>)
+<ul>
+<li>Tuttuja myös VT:stä! (2. Kuninkaiden kirja, Aikakirjat ym.)</li>
+</ul></li>
+<li>Uus-Babylonian valtakunta 626 – 539 eKr. (<em>Nebukadressar</em>)
+<ul>
+<li>VT: Jerusalemin valtaus, karkoitus Babyloniaan</li>
+</ul></li>
+</ul>
+</section>
+<section id="haasteita" class="slide level1">
+<h1>Haasteita</h1>
+<ul>
+<li><p>Kieliaineisto kattaa pitkiä ajanjaksoja, sitä on paljon, ja sen
+tulkinta on vaikeaa (ja tulkintakykyisiä tutkijoita on vähän)</p></li>
+<li><p>Voisiko laskennallisilla menetelmillä paljastaa aineistosta
+kulttuurillisia ja sosiaalisia ilmiöitä?</p>
+<ul>
+<li>Henkilönimien muodostamat sosiaaliset eliitit</li>
+<li>Semanttiset ilmiöt</li>
+</ul></li>
+</ul>
+</section>
+<section id="sanasemantiikka" class="slide level1">
+<h1>Sanasemantiikka</h1>
+<ul>
+<li>Jakaumahypoteesi (<em>distributional hypothesis</em>): sanoilla,
+joiden ympäristöt ovat samanlaisia, on samanlainen merkitys
+<ul>
+<li><em>elokuva oli loistava</em></li>
+<li><em>elokuva oli erinomainen</em></li>
+<li><em>elokuva oli hirveä</em></li>
+<li><em>otin omenan pöydältä</em></li>
+<li><em>otin omenan puusta</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="sanasemantiikka-1" class="slide level1">
+<h1>Sanasemantiikka</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>loistava</th>
+<th>erinomainen</th>
+<th>elokuva</th>
+<th>kolme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>loistava</td>
+<td></td>
+<td>3</td>
+<td>57</td>
+<td>4</td>
+</tr>
+<tr>
+<td>erinomainen</td>
+<td>3</td>
+<td></td>
+<td>39</td>
+<td>5</td>
+</tr>
+<tr>
+<td>elokuva</td>
+<td>57</td>
+<td>39</td>
+<td></td>
+<td>11</td>
+</tr>
+<tr>
+<td>kolme</td>
+<td>4</td>
+<td>5</td>
+<td>11</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section" class="slide level1">
+<h1></h1>
+<p><img src="word2vec.png" height=650px /></p>
+</section>
+<section id="pmi" class="slide level1">
+<h1>PMI</h1>
+<ul>
+<li>Pointwise mutual information: miten paljon todennäköisempää on sanan
+A esiintyminen sanan B ympäristössä kuin yleensä?</li>
+</ul>
+<p><img src="pmi.png" /></p>
+<ul>
+<li>Tuottaa pareittaisia etäisyyksiä, ei vektoriavaruutta</li>
+</ul>
+</section>
+<section id="sanaupotusten-tulkinta" class="slide level1">
+<h1>Sanaupotusten tulkinta</h1>
+<ul>
+<li><p>Sanaupotuksia käytetään yleensä sovelluksissa, ei suoraan
+tulkintaan</p></li>
+<li><p>Sanoupotukset muodostavat yleensä n. 100-ulotteisen
+avaruuden</p></li>
+<li><p>PMI-parit muodostavat verkoston, jossa on N^N kaarta</p></li>
+</ul>
+</section>
+<section id="demo-ulotteisuus" class="slide level1">
+<h1>Demo: ulotteisuus</h1>
+</section>
+<section id="miten-tehdä-tulkittavampia-upotuksia" class="slide level1">
+<h1>Miten tehdä tulkittavampia upotuksia?</h1>
+<ul>
+<li><p>PCA (principal component analysis), LDA (linear discriminant
+analysis), …</p></li>
+<li><p>Ongelma: yleensä kieliopilliset ilmiöt dominoivat
+semantiikkaa</p></li>
+</ul>
+</section>
+<section id="verkostojen-asettelualgoritmit" class="slide level1">
+<h1>Verkostojen asettelualgoritmit</h1>
+<ul>
+<li><p>Joko upotusten läheisyydestä tai PMI-pareista voidaan tehdä
+“puoleensavetäviä voimia” ja mallintaa sanastoa 2D-verkkona</p></li>
+<li><p>“Fysiikkasimulaatio” päätyy tasapainotilaan</p></li>
+<li><p>Yifan Hu, Fruchterman-Reingold, ForceAtlas</p></li>
+<li><p>ForceAtlas2: Mathieu Jacomy et al. (2014)</p></li>
+</ul>
+</section>
+<section id="asettelualgoritmit" class="slide level1">
+<h1>Asettelualgoritmit</h1>
+<p><img src="graphs.png" height=520px/></p>
+</section>
+<section id="demo-anee-portaalit" class="slide level1">
+<h1>Demo: ANEE-portaalit</h1>
+</section>
+<section id="sovellukset" class="slide level1">
+<h1>Sovellukset</h1>
+<figure>
+<img src="semantic_domains_1.png" height=500px/>
+<figcaption>
+Lindén et al.: Social group identities and semantic domains in the
+ancient Near East (2024)
+</figcaption>
+</figure>
+</section>
+<section id="sovellukset-1" class="slide level1">
+<h1>Sovellukset</h1>
+<figure>
+<img src="semantic_domains_2.png" height=500px/>
+<figcaption>
+Lindén et al.: Social group identities and semantic domains in the
+ancient Near East (2024)
+</figcaption>
+</figure>
+</section>
+<section id="linkkejä" class="slide level1">
+<h1>Linkkejä</h1>
+<ul>
+<li><a href="https://etsin.fairdata.fi/datasets?search=akkadi&page=1">Akkadinkielinen
+data Etsin-palvelussa</a></li>
+<li><a href="https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires/anee-lexical-networks-v20">Leksikaaliset
+portaalit ANEE:n sivuilla</a></li>
+</ul>
+</section>
+<section id="kuvakrediitit" class="slide level1">
+<h1>Kuvakrediitit</h1>
+<div class="compress">
+<p>Assurbanipalin sotaretki: kaappaus teoksesta Smith, George:
+<em>History of Assurbanipall, Translated from the Cuneiform
+Inscription</em> (1871,
+<a href="https://archive.org/details/bub_gb_pFk53uejMjcC/page/n63/mode/2up">archive.org/details/bub_gb_pFk53uejMjcC/page/n63/mode/2up</a>)</p>
+<p>Uus-Babylonian kartta:
+<a href="https://en.wikipedia.org/wiki/Neo-Babylonian_Empire#/media/File:Neo-Babylonian_Empire_under_Nabonidus_map.png">en.wikipedia.org/wiki/Neo-Babylonian_Empire#/media/File:Neo-Babylonian_Empire_under_Nabonidus_map.png</a></p>
+<p>Sargonin naamio:
+<a href="https://commons.wikimedia.org/wiki/File:Sargon_of_Akkad_(1936).jpg">commons.wikimedia.org/wiki/File:Sargon_of_Akkad_(1936).jpg</a></p>
+<p>Asettelualgorimit:
+<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679">journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679</a></p>
+</div>
+<!--  -->
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
