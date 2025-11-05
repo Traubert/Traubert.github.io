@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>ACF staff seminar: Ancient languages and computational
+semantics</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/theme/black.css" id="theme">
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level1">
+
+<!-- <script src="plugin/math/math.js"></script> -->
+<!-- <script> -->
+<!--   Reveal.initialize({ plugins: [RevealMath.KaTeX] }); -->
+<!-- </script> -->
+<style>
+.container{
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+.compress {
+  font-size: .75em;
+}
+.reveal {
+  --r-heading1-size: 2.0em;
+}
+
+:root figcaption {
+  font-size: 0.5em;
+}
+
+:root verticaltext {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+</style>
+</section>
+<section id="ancient-languages-and-computational-semantics"
+class="slide level1 title">
+<h1 class="title">Ancient languages and computational semantics</h1>
+<aside class="notes">
+<p>I’m going to tell you about an interesting project I was involved in
+a while ago, which is a bit out of the ordinary for this seminar. It’s
+about using computation to help with our understanding of ancient
+language texts.</p>
+</aside>
+</section>
+<section id="academy-of-finland-project" class="slide level1">
+<h1>Academy of Finland project</h1>
+<ul>
+<li>ANEE: Ancient Near East Empires, Centre of Excellence 2018-2025
+<ul>
+<li>Ancient (first millennium BC) Near East (Mesopotamia)</li>
+<li>Digital humanities, archeology, social sciences</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>This work was a small subpart of a subpart of this project</p>
+</aside>
+<!-- # Me -->
+<!-- * _Not_ an Assyriologist, but a language technologist -->
+<!-- * Contracted to do some work on this at UHEL, now developing the Language Bank at CSC -->
+</section>
+<section id="akkadian-language" class="slide level1">
+<h1>Akkadian language</h1>
+<ul>
+<li><p>In the extinct family of East Semitic languages</p></li>
+<li><p>In use approx. 2500 BC - 500 BC</p></li>
+<li><p>Had strong influence on Aramaic, which ultimately replaced
+it</p></li>
+<li><p>You may know it from: the epic of Gilgamesh</p></li>
+</ul>
+</section>
+<section id="akkadian-language-1" class="slide level1">
+<h1>Akkadian language</h1>
+<div class="compress">
+<table>
+<thead>
+<tr>
+<th>Akkadian</th>
+<th>Hebrew</th>
+<th>Arabic</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bītum</td>
+<td>báyit (בַּיִת)</td>
+<td>bayt (بَيْت)</td>
+<td>house</td>
+</tr>
+<tr>
+<td>šarrum</td>
+<td>śar (שַׂר)</td>
+<td>sarī (سَرِيّ)</td>
+<td>king / prince / official</td>
+</tr>
+<tr>
+<td>ilum</td>
+<td>ʾēl (אֵל)</td>
+<td>ilāh (إلٰه) → Allāh (الله)</td>
+<td>God</td>
+</tr>
+<tr>
+<td>šulmu</td>
+<td>šālōm (שָׁלוֹם)</td>
+<td>salām (سلام)</td>
+<td>peace, well-being</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cuneiform-writing" class="slide level1">
+<h1>Cuneiform writing</h1>
+<ul>
+<li><p>What is preserved from Akkadian is cuneiform inscriptions,
+wedge-shaped impressions in clay tablets</p></li>
+<li><p>Logosyllabic: some words are written with a single logogram,
+others with syllable signs</p></li>
+</ul>
+<!-- * A borrowing from Sumerian, an earlier language in the region, which is unrelated to Akkadian but remained in ceremonial use alongside it -->
+<aside class="notes">
+<p>There was most likely a lot more writing on wax tablets, papyrus etc.
+but that has all been lost.</p>
+</aside>
+</section>
+<section id="cuneiform-writing-1" class="slide level1">
+<h1>Cuneiform writing</h1>
+<figure>
+<img src="ashurbanipal_egyptian_war_1.png" height=450px/>
+<figcaption>
+Ashurbanipal’s Egyptian campaign
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Assur, Istar start with the same symbol as Ili, which is followed by
+a plural form. Also -an syllable in prev line.</p>
+</aside>
+</section>
+<section id="cuneiform-writing-2" class="slide level1">
+<h1>Cuneiform writing</h1>
+<figure>
+<img src="complaint.jpg" height=450px/>
+<figcaption>
+Royal scribes complain that other duties are keeping them from
+astronomical observations and teaching
+</figcaption>
+</figure>
+</section>
+<section id="cuneiform-writing-3" class="slide level1">
+<h1>Cuneiform writing</h1>
+<ul>
+<li><p>A surprisingly large number of clay tablets have been preserved,
+ca. 500 000</p></li>
+<li><p>Only about 10% of them have been transliterated, translated and
+published</p></li>
+</ul>
+</section>
+<section id="mesopotamia" class="slide level1">
+<h1>Mesopotamia</h1>
+<figure>
+<img src="Neo-Babylonian_Empire_under_Nabonidus_map.png" height=500px/>
+<figcaption>
+Neo-Babylonian Empire ca. 550 BC
+</figcaption>
+</figure>
+<aside class="notes">
+<p>At its height, delimited by Mediterranean, Caucasus Mountains,
+Caspian Sea, Red Sea, and the Syrian Desert.</p>
+</aside>
+</section>
+<section id="mesopotamia-1" class="slide level1">
+<h1>Mesopotamia</h1>
+<ul>
+<li>City-states of Sumer 5500 BC - 1800 BC (<em>Ur</em>)</li>
+<li>Akkadian empire 2300 BC - 2100 BC (<em>Sargon of Akkad</em>)</li>
+</ul>
+<p><img src="Sargon_of_Akkad_(1936).jpg" height=300px/></p>
+</section>
+<section id="mesopotamia-2" class="slide level1">
+<h1>Mesopotamia</h1>
+<ul>
+<li>Assyrian and Neo-Assyrian empire 2000 BC - 600 BC
+(<em>Tukulti-Ninurta</em>, <em>Tiglath-Pileser</em>, <em>Library of
+Nineveh</em>)
+<ul>
+<li>You may know them from: The Old Testament! (2. Kings, Chronicles
+etc.)</li>
+</ul></li>
+<li>Neo-Babylonian empire 626 BC – 539 BC (<em>Nebuchadnezzar</em>)
+<ul>
+<li>Old Testament: Sack of Jerusalem, Babylonian exile</li>
+</ul></li>
+</ul>
+</section>
+<section id="challenges" class="slide level1">
+<h1>Challenges</h1>
+<ul>
+<li><p>The material covers long periods of history, it is plentiful, and
+hard to interpret (there are few experts)</p></li>
+<li><p>Could computational methods reveal linguistic, cultural and
+social phenomana?</p>
+<ul>
+<li>Social elites formed by personal names</li>
+<li>Semantic distinctions, diachronic (across time) and synchronic (at
+one time)</li>
+</ul></li>
+</ul>
+</section>
+<section id="lexical-semantics" class="slide level1">
+<h1>Lexical semantics</h1>
+<ul>
+<li>Distributional hypothesis: words with similar contexts have similar
+meanings
+<ul>
+<li><em>bicycle wheels, car wheels, steering wheels, car steering,
+bicycle steering</em></li>
+<li><em>riding a horse, riding a bicycle</em></li>
+<li><em>horses eat grass</em></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Bicycle, car and steering appear with wheels, wheels, bicycle and car
+appear with steering</p>
+<p>Horses and bicycles are both ridden, but only horses eat grass</p>
+</aside>
+</section>
+<section id="lexical-semantics-1" class="slide level1">
+<h1>Lexical semantics</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>bicycle</th>
+<th>wheel</th>
+<th>car</th>
+<th>steer</th>
+<th>ride</th>
+<th>horse</th>
+<th>grass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bicycle</td>
+<td></td>
+<td>31</td>
+<td>5</td>
+<td>11</td>
+<td>39</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>wheel</td>
+<td>31</td>
+<td></td>
+<td>27</td>
+<td>8</td>
+<td>12</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>car</td>
+<td>5</td>
+<td>27</td>
+<td></td>
+<td>13</td>
+<td>5</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>steer</td>
+<td>11</td>
+<td>8</td>
+<td>13</td>
+<td></td>
+<td>9</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ride</td>
+<td>39</td>
+<td>12</td>
+<td>5</td>
+<td>9</td>
+<td></td>
+<td>27</td>
+<td>10</td>
+</tr>
+<tr>
+<td>horse</td>
+<td>2</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>27</td>
+<td></td>
+<td>19</td>
+</tr>
+<tr>
+<td>grass</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>10</td>
+<td>19</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>This co-occurrence table captures all the co-occurrence
+information</p>
+<p>You can already think of the rows as vectors, and compute dot
+products between words</p>
+</aside>
+</section>
+<section id="section" class="slide level1">
+<h1></h1>
+<p><img src="word2vec-diagram2.svg" height=650px /></p>
+</section>
+<section id="pmi" class="slide level1">
+<h1>PMI</h1>
+<ul>
+<li>Pointwise mutual information: how much more likely are A and B
+together than in general? <span class="math inline">log_2</span> of
+that: how many bits does seeing A tell you about B?</li>
+</ul>
+<!-- $$\operatorname{pmi}(x;y) \equiv \\ \log_2\frac{p(x,y)}{p(x)p(y)} = \log_2\frac{p(x|y)}{p(x)} = \log_2\frac{p(y|x)}{p(y)}$$ -->
+<p><span class="math display">\operatorname{pmi}(x;y) \equiv
+\log_2\frac{p(x,y)}{p(x)p(y)}</span></p>
+<ul>
+<li>Produces pairwise “proximities”, not a vector space</li>
+</ul>
+</section>
+<section id="interpreting-word-embeddings" class="slide level1">
+<h1>Interpreting word embeddings</h1>
+<ul>
+<li><p>Word embeddings are usually used as inputs to ML pipelines, not
+directly interpreted</p></li>
+<li><p>They are points in a space with hundreds of dimensions</p></li>
+<li><p>PMI pairs form a network with <span
+class="math inline">N^M</span> edges, and they don’t come with a natural
+2D (or 3D) embedding</p></li>
+</ul>
+</section>
+<section id="interpreting-word-embeddings-1" class="slide level1">
+<h1>Interpreting word embeddings</h1>
+<ul>
+<li><p>Dimensionality reduction - PCA (principal component analysis),
+LDA (linear discriminant analysis), …</p></li>
+<li><p>Problematic: big linguistic features dominate, semantic
+distinctions disappear</p></li>
+</ul>
+<aside class="notes">
+<p>Maybe it would be easier if we could visualise the points in 2D.</p>
+</aside>
+</section>
+<section id="layout-algorithms" class="slide level1">
+<h1>Layout algorithms</h1>
+<ul>
+<li><p>Proximities in the embedding space or in PMI can be turned into
+“attractive forces” in a lower dimensional space</p></li>
+<li><p>A “physics simulation” ends up in a settled / minimal energy
+state</p></li>
+<li><p>Yifan Hu, Fruchterman-Reingold, ForceAtlas</p></li>
+<li><p>ForceAtlas2: Mathieu Jacomy et al. (2014)</p></li>
+</ul>
+</section>
+<section id="layout-algorithms-1" class="slide level1">
+<h1>Layout algorithms</h1>
+<p><img src="graphs.png" height=520px/></p>
+<aside class="notes">
+<p>LL = LinLog</p>
+</aside>
+</section>
+<section id="demo-anee-portals" class="slide level1">
+<h1>Demo: ANEE portals</h1>
+<ul>
+<li><a href="https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires/anee-lexical-networks-v20">Leksikaaliset
+portaalit ANEE:n sivuilla</a></li>
+</ul>
+<aside class="notes">
+<p>First millennium texts, english, sword = patru / namsaru</p>
+</aside>
+</section>
+<section id="applications" class="slide level1">
+<h1>Applications</h1>
+<figure>
+<img src="semantic_domains_1.png" height=500px/>
+<figcaption>
+Lindén et al.: Social group identities and semantic domains in the
+ancient Near East (2024)
+</figcaption>
+</figure>
+</section>
+<section id="applications-1" class="slide level1">
+<h1>Applications</h1>
+<figure>
+<img src="semantic_domains_2.png" height=500px/>
+<figcaption>
+Lindén et al.: Social group identities and semantic domains in the
+ancient Near East (2024)
+</figcaption>
+</figure>
+</section>
+<section id="links" class="slide level1">
+<h1>Links</h1>
+<ul>
+<li><a href="https://etsin.fairdata.fi/datasets?search=akkadian&page=1">Akkadian
+source data in the Etsin service</a></li>
+<li><a href="https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires/anee-lexical-networks-v20">Lexical
+portals on the ANEE site</a></li>
+</ul>
+</section>
+<section id="image-credits" class="slide level1">
+<h1>Image credits</h1>
+<div class="compress">
+<p>Ashurbanipal’s campaign: from Smith, George: <em>History of
+Assurbanipall, Translated from the Cuneiform Inscription</em> (1871,
+<a href="https://archive.org/details/bub_gb_pFk53uejMjcC/page/n63/mode/2up">archive.org/details/bub_gb_pFk53uejMjcC/page/n63/mode/2up</a>)</p>
+<p>Map of Neo-Babylonian empire:
+<a href="https://en.wikipedia.org/wiki/Neo-Babylonian_Empire#/media/File:Neo-Babylonian_Empire_under_Nabonidus_map.png">en.wikipedia.org/wiki/Neo-Babylonian_Empire#/media/File:Neo-Babylonian_Empire_under_Nabonidus_map.png</a></p>
+<p>Mask of Sargon:
+<a href="https://commons.wikimedia.org/wiki/File:Sargon_of_Akkad_(1936).jpg">commons.wikimedia.org/wiki/File:Sargon_of_Akkad_(1936).jpg</a></p>
+<p>Layout algorithms:
+<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679">journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679</a></p>
+</div>
+<!--  -->
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
