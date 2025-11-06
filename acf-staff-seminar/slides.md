@@ -160,6 +160,8 @@ At its height, delimited by Mediterranean, Caucasus Mountains, Caspian Sea, Red 
   * _horses eat grass_
 
 ::: notes
+Obviously perfect synonyms have the same distributions. The other direction is less obvious. Some words with similar distributions (good, bad) have opposite meanings. It would be nice to be able to separate out not just the degree of difference but also the direction of difference.
+
 Bicycle, car and steering appear with wheels, wheels, bicycle and car appear with steering
 
 Horses and bicycles are both ridden, but only horses eat grass
@@ -237,12 +239,20 @@ LL = LinLog
 
 # Demo: ANEE portals
 
-* <a href="https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires/anee-lexical-networks-v20">Leksikaaliset portaalit ANEE:n sivuilla</a>
+* <a href="https://www.helsinki.fi/en/researchgroups/ancient-near-eastern-empires/anee-lexical-networks-v20">Lexical portals on ANEE's site</a>
 
 ::: notes
 First millennium texts, english, sword = patru / namsaru
 :::
 
+# patru vs. namṣāru
+
+<div style="display: flex; gap: 8px; justify-content: center;">
+  <img src="patru.png" style="width: 440px;">
+  <img src="namsaru.png" style="width: 440px;">
+</div>
+
+<!-- <img src="patru.png" height=500px /> <img src="namsaru.png" height=500px float=left/>  -->
 
 # Applications
 
