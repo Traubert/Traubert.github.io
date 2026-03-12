@@ -331,10 +331,14 @@ I'm old and tired with 3 kids, so I don't actually have the energy to do that mu
 
 - Skill atrophy / loss of understanding
 
+- Context collapse
+
 ::: notes
 Claude generally asks for permission to do things, so it doesn't automatically just read everything it has access to. But if you want to be very safe, run it on a VM, separate user account, or keep sensitive data otherwise inaccessible.
 
 It will for example automatically try to see if it's in a github repository and connect to remote hosts, so it will try to unlock your ssh keys for that. You can refuse, but if you let it do so, consider having a separate ssh key for git access (separate keys can be prudent anyway). With naive use you _are_ giving access to your SSH keys to Anthropic.
+
+The models have a certain amount of context, and when that runs out (easy when it's ingesting a lot code and doing a lot of reasoning), the context gets compacted. At that point, a lot is lost, and it's sometimes difficult moving forward without reintroducing a lot of context, might be better off just starting fresh. You can pay for more context though.
 
 Coding together is possible, but if you and CC both edit code, you have to tell it what you did. Otherwise it will start getting confused.
 :::

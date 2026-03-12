@@ -378,6 +378,7 @@ things were different…</p>
 <ul>
 <li><p>Security</p></li>
 <li><p>Skill atrophy / loss of understanding</p></li>
+<li><p>Context collapse</p></li>
 </ul>
 <aside class="notes">
 <p>Claude generally asks for permission to do things, so it doesn’t
@@ -390,6 +391,12 @@ ssh keys for that. You can refuse, but if you let it do so, consider
 having a separate ssh key for git access (separate keys can be prudent
 anyway). With naive use you <em>are</em> giving access to your SSH keys
 to Anthropic.</p>
+<p>The models have a certain amount of context, and when that runs out
+(easy when it’s ingesting a lot code and doing a lot of reasoning), the
+context gets compacted. At that point, a lot is lost, and it’s sometimes
+difficult moving forward without reintroducing a lot of context, might
+be better off just starting fresh. You can pay for more context
+though.</p>
 <p>Coding together is possible, but if you and CC both edit code, you
 have to tell it what you did. Otherwise it will start getting
 confused.</p>
