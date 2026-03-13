@@ -46,6 +46,8 @@ I'm not really an expert on AI tools, but Jussi Heikonen asked me to talk about 
 
 He said that he's worried that we're falling behind development with these tools. The good news is, we're not very far behind, because in my opinion these tools only became really good about three months ago.
 
+(This is specifically about LLMs.)
+
 I'm going to share my personal experience in using them and describing some of the recent changes. I'm not giving a comprehensive overview, I'm going to focus on what I think are the most critical things going on right now, that I know about.
 
 ::: 
@@ -54,15 +56,11 @@ I'm going to share my personal experience in using them and describing some of t
 
 You need to completely revise your understanding of AI tools if it's mostly based on:
 
-::: incremental
-
 - Using AI tools 3+ months ago
 
 - Using the official company Copilot
 
 - Using free services
-
-:::
 
 ::: notes
 Hands up? I'm going to try to convince you.
@@ -83,7 +81,7 @@ Hands up? I'm going to try to convince you.
 
 ::: notes
 
-First, a very recent and very extreme example of scientific software development, actually doing science with software.
+This is not really software development, but as a demonstration of recent capabilities increase, a very recent and very extreme example of scientific software development, actually doing science with software.
 
 :::
 
@@ -186,6 +184,10 @@ Around December, there was a dramatic improvement.
 
 Claude Opus 4.5 had recently been released, and I was hearing tons of hype about it. So I decided to look at a difficult hobby project I had been thinking about for a long time.
 
+In computer chess, there are "endgame tablebases", precalculated compressed databases of all possible combinations of a small number of pieces telling you the result with perfect play, and the result of each possible move (win/draw/loss).
+
+One thing that is sometimes debated in chess is stalemate, where one side has no legal moves left. In regular chess, stalemate is a draw, but arguably it would make more sense if stalemating your opponent would be a win. Many important endgames are drawn only because of stalemate, so we know it would change endgames a lot. But as far as I know this hasn't really been quantified, so I wanted to change the code that calculates these tablebases to consider stalemate to be a win, and then recalculate  the tables.
+
 :::
 
 # My Christmas holiday: adapting the Syzygy generator
@@ -206,6 +208,10 @@ Claude Opus 4.5 had recently been released, and I was hearing tons of hype about
 :::
 ::::::
 
+::: notes
+Remind you of any scientific code you may have seen? The code exists to produce a final output, there are no "normal users". And it's not just one place in the code you have to change, *and* it's hard to know when you've found every relevant place.
+:::
+
 # My Christmas holiday - process
 
 - Introduce project to Claude Code, instruct it to read the codebase and write a summary in CLAUDE.md
@@ -222,9 +228,10 @@ Validate: eg. we want KNNvK to be mostly a win in stalewin and draw in regular. 
 
 - Opus burned through the tokens in my "Pro" level account very fast
 
-- I had to either work in 20 minute bursts, or pay for more token budget
+- I had to either work in short bursts and wait for tokens to refresh, or pay for more token budget
 
 - I ended up spending 20 euros out of momentum
+
 
 # My Christmas holiday - Claude fails
 
@@ -232,7 +239,7 @@ Validate: eg. we want KNNvK to be mostly a win in stalewin and draw in regular. 
 
 - Claude developed a Python implementation that tries to load each position into a Python object
 
-- It would have needed petabytes of memory even if each position were 1 byte, but it's Python, they're more like 1000 bytes
+- It would have needed many terabytes of memory even if each position were 1 byte, but it's Python, they're more like 1000 bytes
 
 ::: notes
 
@@ -244,8 +251,12 @@ Generally: you have to tell it what to do, exactly enough. It can decide how to 
 
 # More ambitious work projects
 
+- Replacing a single-customer on-server Python authorization service with a from-scratch Node.js server with multiple customers
+
+- Writing ambitious new features for a service that touches 5 codebases
+
 ::: notes
-Writing an entire authorization service with integrations
+Almost all code for the authorization service written by Claude, with close supervision and team review. The ambitious new features thing will be in the next slides.
 :::
 
 # More ambitious work project
@@ -260,6 +271,8 @@ I know these are the worst slides ever... But I can't think of another way to sh
 Here I'm developing a feature that involves not just mink-frontend and mink-backend, but sparv, korp, our provisioning code, our authorization service, databases...
 
 and I'm the only one one our team developing this. This kind of thing can be really slow to develop.
+
+By the way, this is all open source. And this is with Claude Sonnet, not Opus.
 :::
 
 # More ambitious work project
@@ -268,11 +281,19 @@ and I'm the only one one our team developing this. This kind of thing can be rea
 <figcaption></figcaption>
 </figure>
 
+::: notes
+After we're generated an overview of the project, we make more notes about the specific feature.
+:::
+
 # More ambitious work project
 
 <img src="mink4.png" height=560px/>
 <figcaption></figcaption>
 </figure>
+
+::: notes
+Here I've said "no" to an edit, since I wasn't understanding what useMinkBackend was.
+:::
 
 # More ambitious work project
 
@@ -280,11 +301,19 @@ and I'm the only one one our team developing this. This kind of thing can be rea
 <figcaption></figcaption>
 </figure>
 
+::: notes
+Claude explains patiently.
+:::
+
 # More ambitious work project
 
 <img src="mink6.png" height=500px/>
 <figcaption></figcaption>
 </figure>
+
+::: notes
+Our frontend isn't rendering correctly, because it's expecting something different from the backend than is actually coming through. Claude wants to add debugging prints, I say no, let's check the endpoint directly.
+:::
 
 # More ambitious work project
 
@@ -292,11 +321,20 @@ and I'm the only one one our team developing this. This kind of thing can be rea
 <figcaption></figcaption>
 </figure>
 
+::: notes
+Problem identified and fixed.
+:::
+
+
 # More ambitious work project
 
 <img src="mink8.png" height=520px/>
 <figcaption></figcaption>
 </figure>
+
+::: notes
+Here Claude has gotten the wrong idea. It thinks I'm trying to make sure a certain class of annotators is always visible, when I wanted to make sure the changes we were making would not cause them to become visible. So I explain that I want a hiding configuration and also a disabling configuration, at different levels of the backend logic.
+:::
 
 # Hierarchy of tool agency
 
@@ -305,11 +343,15 @@ and I'm the only one one our team developing this. This kind of thing can be rea
 - Level 2: Autocomplete in IDE
 
 - Level 3: Interacting with agent in a feedback loop
+  - 3a: You inspect the code continuously
+  - 3b: You just inspect the outcome ("vibe coding")
 
 - Level 4: Agent in a harness
 
 ::: notes
-Agent in a harness is actually how the Knuth thing got done!
+How I personally am thinking about how much initiative a tool is taking.
+
+Agent in a harness: the agent loops autonomously on a broad goal, and also collects messages and information from its environment continuously. A simple harness is actually how the Knuth thing from slide 2 got done!
 :::
 
 # Implications
@@ -331,33 +373,37 @@ I'm old and tired with 3 kids, so I don't actually have the energy to do that mu
 
 - Skill atrophy / loss of understanding
 
-- Context collapse
+- Context collapse / compaction
 
 ::: notes
 Claude generally asks for permission to do things, so it doesn't automatically just read everything it has access to. But if you want to be very safe, run it on a VM, separate user account, or keep sensitive data otherwise inaccessible.
 
 It will for example automatically try to see if it's in a github repository and connect to remote hosts, so it will try to unlock your ssh keys for that. You can refuse, but if you let it do so, consider having a separate ssh key for git access (separate keys can be prudent anyway). With naive use you _are_ giving access to your SSH keys to Anthropic.
 
+Using these tools does start to degrade your skills, and as a team you have to review a lot of code, and even then it can easily happen that you don't understand your own codebase anymore.
+
 The models have a certain amount of context, and when that runs out (easy when it's ingesting a lot code and doing a lot of reasoning), the context gets compacted. At that point, a lot is lost, and it's sometimes difficult moving forward without reintroducing a lot of context, might be better off just starting fresh. You can pay for more context though.
 
 Coding together is possible, but if you and CC both edit code, you have to tell it what you did. Otherwise it will start getting confused.
 :::
 
-# Non-coding uses of Claude Code
+# Non-coding uses
 
-- Claude code can integrate with MCP servers (Model Context Protocol), giving it access to various data stores
+- Integration with MCP servers (Model Context Protocol), giving it access to various data stores
 
-- People also just dump their emails and notes into directories
+- General data access using the file system
+
+- Hooks, integrations, ... (OpenClaw)
 
 # Current economics
 
 <img src="subsidy.jpg" height=520px/>
-<figcaption>Subscriptions currently feel like a great deal, because they are!</figcaption>
+<figcaption>Subscriptions currently feel like a great deal, because they are! (Forbes)</figcaption>
 </figure>
 
 # Anthropic growth
 
-<img src="anthropic.jpg" height=300px/>
+<img src="anthropic.jpg" height=480px/>
 <figcaption>Anthropic (makers of Claude) seem to be winning the professional market</figcaption>
 </figure>
 
@@ -391,6 +437,10 @@ Coding together is possible, but if you and CC both edit code, you have to tell 
 # Image credits
 ::: {.compress}
 Don Knuth: Richard Morris / https://www.red-gate.com/simple-talk/opinion/geek-of-the-week/donald-knuth-geek-of-the-week/
+
+Terence Tao: David Esquivel/UCLA / https://newsroom.ucla.edu/stories/terence-tao-science-stability-future-of-math-washington-post
+
+Forbes article: https://www.forbes.com/sites/annatong/2026/03/05/cursor-goes-to-war-for-ai-coding-dominance/
 
 :::
 <!--  -->

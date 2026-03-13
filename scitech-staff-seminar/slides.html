@@ -84,6 +84,7 @@ much.</p>
 <p>He said that he’s worried that we’re falling behind development with
 these tools. The good news is, we’re not very far behind, because in my
 opinion these tools only became really good about three months ago.</p>
+<p>(This is specifically about LLMs.)</p>
 <p>I’m going to share my personal experience in using them and
 describing some of the recent changes. I’m not giving a comprehensive
 overview, I’m going to focus on what I think are the most critical
@@ -95,9 +96,9 @@ things going on right now, that I know about.</p>
 <p>You need to completely revise your understanding of AI tools if it’s
 mostly based on:</p>
 <ul>
-<li class="fragment"><p>Using AI tools 3+ months ago</p></li>
-<li class="fragment"><p>Using the official company Copilot</p></li>
-<li class="fragment"><p>Using free services</p></li>
+<li><p>Using AI tools 3+ months ago</p></li>
+<li><p>Using the official company Copilot</p></li>
+<li><p>Using free services</p></li>
 </ul>
 <aside class="notes">
 <p>Hands up? I’m going to try to convince you.</p>
@@ -117,8 +118,10 @@ Donald Knuth, age 88
 </figcaption>
 </figure>
 <aside class="notes">
-<p>First, a very recent and very extreme example of scientific software
-development, actually doing science with software.</p>
+<p>This is not really software development, but as a demonstration of
+recent capabilities increase, a very recent and very extreme example of
+scientific software development, actually doing science with
+software.</p>
 </aside>
 </section>
 <section id="terence-tao-three-weeks-ago" class="slide level1">
@@ -218,6 +221,18 @@ Drawn in regular chess, white wins in stalewin
 <p>Claude Opus 4.5 had recently been released, and I was hearing tons of
 hype about it. So I decided to look at a difficult hobby project I had
 been thinking about for a long time.</p>
+<p>In computer chess, there are “endgame tablebases”, precalculated
+compressed databases of all possible combinations of a small number of
+pieces telling you the result with perfect play, and the result of each
+possible move (win/draw/loss).</p>
+<p>One thing that is sometimes debated in chess is stalemate, where one
+side has no legal moves left. In regular chess, stalemate is a draw, but
+arguably it would make more sense if stalemating your opponent would be
+a win. Many important endgames are drawn only because of stalemate, so
+we know it would change endgames a lot. But as far as I know this hasn’t
+really been quantified, so I wanted to change the code that calculates
+these tablebases to consider stalemate to be a win, and then recalculate
+the tables.</p>
 </aside>
 </section>
 <section id="my-christmas-holiday-adapting-the-syzygy-generator"
@@ -239,6 +254,12 @@ class="slide level1">
 </figure>
 </div>
 </div>
+<aside class="notes">
+<p>Remind you of any scientific code you may have seen? The code exists
+to produce a final output, there are no “normal users”. And it’s not
+just one place in the code you have to change, <em>and</em> it’s hard to
+know when you’ve found every relevant place.</p>
+</aside>
 </section>
 <section id="my-christmas-holiday---process" class="slide level1">
 <h1>My Christmas holiday - process</h1>
@@ -260,8 +281,8 @@ explained, it understood, and then it made a note!</p>
 <ul>
 <li><p>Opus burned through the tokens in my “Pro” level account very
 fast</p></li>
-<li><p>I had to either work in 20 minute bursts, or pay for more token
-budget</p></li>
+<li><p>I had to either work in short bursts and wait for tokens to
+refresh, or pay for more token budget</p></li>
 <li><p>I ended up spending 20 euros out of momentum</p></li>
 </ul>
 </section>
@@ -271,8 +292,9 @@ budget</p></li>
 <li><p>I wanted a browsing interface to the tablebases</p></li>
 <li><p>Claude developed a Python implementation that tries to load each
 position into a Python object</p></li>
-<li><p>It would have needed petabytes of memory even if each position
-were 1 byte, but it’s Python, they’re more like 1000 bytes</p></li>
+<li><p>It would have needed many terabytes of memory even if each
+position were 1 byte, but it’s Python, they’re more like 1000
+bytes</p></li>
 </ul>
 <aside class="notes">
 <p>After calculating the 6-man stalewin tables (~10 days on my desktop).
@@ -285,8 +307,17 @@ have to have a pretty good idea of what you are doing.</p>
 </section>
 <section id="more-ambitious-work-projects" class="slide level1">
 <h1>More ambitious work projects</h1>
+<ul>
+<li><p>Replacing a single-customer on-server Python authorization
+service with a from-scratch Node.js server with multiple
+customers</p></li>
+<li><p>Writing ambitious new features for a service that touches 5
+codebases</p></li>
+</ul>
 <aside class="notes">
-<p>Writing an entire authorization service with integrations</p>
+<p>Almost all code for the authorization service written by Claude, with
+close supervision and team review. The ambitious new features thing will
+be in the next slides.</p>
 </aside>
 </section>
 <section id="more-ambitious-work-project" class="slide level1">
@@ -303,6 +334,8 @@ and mink-backend, but sparv, korp, our provisioning code, our
 authorization service, databases…</p>
 <p>and I’m the only one one our team developing this. This kind of thing
 can be really slow to develop.</p>
+<p>By the way, this is all open source. And this is with Claude Sonnet,
+not Opus.</p>
 </aside>
 </section>
 <section id="more-ambitious-work-project-1" class="slide level1">
@@ -311,6 +344,10 @@ can be really slow to develop.</p>
 <figcaption>
 </figcaption>
 </figure>
+<aside class="notes">
+<p>After we’re generated an overview of the project, we make more notes
+about the specific feature.</p>
+</aside>
 </section>
 <section id="more-ambitious-work-project-2" class="slide level1">
 <h1>More ambitious work project</h1>
@@ -318,6 +355,10 @@ can be really slow to develop.</p>
 <figcaption>
 </figcaption>
 </figure>
+<aside class="notes">
+<p>Here I’ve said “no” to an edit, since I wasn’t understanding what
+useMinkBackend was.</p>
+</aside>
 </section>
 <section id="more-ambitious-work-project-3" class="slide level1">
 <h1>More ambitious work project</h1>
@@ -325,6 +366,9 @@ can be really slow to develop.</p>
 <figcaption>
 </figcaption>
 </figure>
+<aside class="notes">
+<p>Claude explains patiently.</p>
+</aside>
 </section>
 <section id="more-ambitious-work-project-4" class="slide level1">
 <h1>More ambitious work project</h1>
@@ -332,6 +376,12 @@ can be really slow to develop.</p>
 <figcaption>
 </figcaption>
 </figure>
+<aside class="notes">
+<p>Our frontend isn’t rendering correctly, because it’s expecting
+something different from the backend than is actually coming through.
+Claude wants to add debugging prints, I say no, let’s check the endpoint
+directly.</p>
+</aside>
 </section>
 <section id="more-ambitious-work-project-5" class="slide level1">
 <h1>More ambitious work project</h1>
@@ -339,6 +389,9 @@ can be really slow to develop.</p>
 <figcaption>
 </figcaption>
 </figure>
+<aside class="notes">
+<p>Problem identified and fixed.</p>
+</aside>
 </section>
 <section id="more-ambitious-work-project-6" class="slide level1">
 <h1>More ambitious work project</h1>
@@ -346,17 +399,33 @@ can be really slow to develop.</p>
 <figcaption>
 </figcaption>
 </figure>
+<aside class="notes">
+<p>Here Claude has gotten the wrong idea. It thinks I’m trying to make
+sure a certain class of annotators is always visible, when I wanted to
+make sure the changes we were making would not cause them to become
+visible. So I explain that I want a hiding configuration and also a
+disabling configuration, at different levels of the backend logic.</p>
+</aside>
 </section>
 <section id="hierarchy-of-tool-agency" class="slide level1">
 <h1>Hierarchy of tool agency</h1>
 <ul>
 <li><p>Level 1: Pasting from chatbot window</p></li>
 <li><p>Level 2: Autocomplete in IDE</p></li>
-<li><p>Level 3: Interacting with agent in a feedback loop</p></li>
+<li><p>Level 3: Interacting with agent in a feedback loop</p>
+<ul>
+<li>3a: You inspect the code continuously</li>
+<li>3b: You just inspect the outcome (“vibe coding”)</li>
+</ul></li>
 <li><p>Level 4: Agent in a harness</p></li>
 </ul>
 <aside class="notes">
-<p>Agent in a harness is actually how the Knuth thing got done!</p>
+<p>How I personally am thinking about how much initiative a tool is
+taking.</p>
+<p>Agent in a harness: the agent loops autonomously on a broad goal, and
+also collects messages and information from its environment
+continuously. A simple harness is actually how the Knuth thing from
+slide 2 got done!</p>
 </aside>
 </section>
 <section id="implications" class="slide level1">
@@ -378,7 +447,7 @@ things were different…</p>
 <ul>
 <li><p>Security</p></li>
 <li><p>Skill atrophy / loss of understanding</p></li>
-<li><p>Context collapse</p></li>
+<li><p>Context collapse / compaction</p></li>
 </ul>
 <aside class="notes">
 <p>Claude generally asks for permission to do things, so it doesn’t
@@ -391,6 +460,9 @@ ssh keys for that. You can refuse, but if you let it do so, consider
 having a separate ssh key for git access (separate keys can be prudent
 anyway). With naive use you <em>are</em> giving access to your SSH keys
 to Anthropic.</p>
+<p>Using these tools does start to degrade your skills, and as a team
+you have to review a lot of code, and even then it can easily happen
+that you don’t understand your own codebase anymore.</p>
 <p>The models have a certain amount of context, and when that runs out
 (easy when it’s ingesting a lot code and doing a lot of reasoning), the
 context gets compacted. At that point, a lot is lost, and it’s sometimes
@@ -402,13 +474,13 @@ have to tell it what you did. Otherwise it will start getting
 confused.</p>
 </aside>
 </section>
-<section id="non-coding-uses-of-claude-code" class="slide level1">
-<h1>Non-coding uses of Claude Code</h1>
+<section id="non-coding-uses" class="slide level1">
+<h1>Non-coding uses</h1>
 <ul>
-<li><p>Claude code can integrate with MCP servers (Model Context
-Protocol), giving it access to various data stores</p></li>
-<li><p>People also just dump their emails and notes into
-directories</p></li>
+<li><p>Integration with MCP servers (Model Context Protocol), giving it
+access to various data stores</p></li>
+<li><p>General data access using the file system</p></li>
+<li><p>Hooks, integrations, … (OpenClaw)</p></li>
 </ul>
 </section>
 <section id="current-economics" class="slide level1">
@@ -416,12 +488,13 @@ directories</p></li>
 <img src="subsidy.jpg" height=520px/>
 <figcaption>
 Subscriptions currently feel like a great deal, because they are!
+(Forbes)
 </figcaption>
 </figure>
 </section>
 <section id="anthropic-growth" class="slide level1">
 <h1>Anthropic growth</h1>
-<img src="anthropic.jpg" height=300px/>
+<img src="anthropic.jpg" height=480px/>
 <figcaption>
 Anthropic (makers of Claude) seem to be winning the professional market
 </figcaption>
@@ -467,6 +540,10 @@ used to be good old fashioned engineering.”<br/> - Andrej Karpathy, Dec
 <div class="compress">
 <p>Don Knuth: Richard Morris /
 https://www.red-gate.com/simple-talk/opinion/geek-of-the-week/donald-knuth-geek-of-the-week/</p>
+<p>Terence Tao: David Esquivel/UCLA /
+https://newsroom.ucla.edu/stories/terence-tao-science-stability-future-of-math-washington-post</p>
+<p>Forbes article:
+https://www.forbes.com/sites/annatong/2026/03/05/cursor-goes-to-war-for-ai-coding-dominance/</p>
 </div>
 <!--  -->
 </section>
