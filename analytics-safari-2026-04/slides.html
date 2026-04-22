@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Analytics safari: Recent developments in AI tools for science
+and coding</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/theme/black.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level1">
+
+<!-- <script src="plugin/math/math.js"></script> -->
+<!-- <script> -->
+<!--   Reveal.initialize({ plugins: [RevealMath.KaTeX] }); -->
+<!-- </script> -->
+<style>
+.container{
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+.compress {
+  font-size: .75em;
+}
+.reveal {
+  --r-heading1-size: 2.0em;
+}
+
+:root figcaption {
+  font-size: 0.5em;
+}
+
+:root verticaltext {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.reveal h1,
+.reveal h2 {
+  font-size: 1.3em;
+}
+</style>
+</section>
+<section id="recent-developments-in-ai-tools-for-science-and-coding"
+class="slide level1 title">
+<h1 class="title">Recent developments in AI tools for science and
+coding</h1>
+<aside class="notes">
+<p>I’m not an expert in these tools, I’m just a user.</p>
+<p>I’m going to share my personal experience in using them and
+describing some of the recent changes. I’m not giving a comprehensive
+overview, I’m going to focus on what I think are the most critical
+things going on right now, that I know about.</p>
+</aside>
+</section>
+<section id="things-are-moving-very-fast" class="slide level1">
+<h1>Things are moving very fast</h1>
+<p>You need to completely revise your understanding of AI tools if it’s
+mostly based on:</p>
+<ul>
+<li><p>Using AI tools 4+ months ago</p></li>
+<li><p>Using the official company Copilot</p></li>
+<li><p>Using free services</p></li>
+</ul>
+<aside class="notes">
+<p>Hands up? I’m going to try to convince you.</p>
+</aside>
+</section>
+<section id="donald-knuth-february" class="slide level1">
+<h1>Donald Knuth, February</h1>
+<figure>
+<img src="knuth.jpg" height=200px/>
+<figcaption>
+Donald Knuth, age 88
+</figcaption>
+</figure>
+<figure>
+<img src="claudes_cycles.png" />
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>This is not really software development, but as a demonstration of
+recent capabilities increase, a very recent and very extreme example of
+scientific software development, actually doing science with
+software.</p>
+</aside>
+</section>
+<section id="terence-tao-february" class="slide level1">
+<h1>Terence Tao, February</h1>
+<figure>
+<img src="terence_tao.jpg" height=200px/>
+<figcaption>
+Terence Tao
+</figcaption>
+</figure>
+<figure>
+<img src="tao_erdos.png" height="300px"/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>This is a screenshot from erdosproblems.com, a repository of open
+problems in mathematics. Someone had told ChatGPT to try to solve
+problems, and it extended Tao’s work to almost solve one of them. Tao
+came to help with the work, and here we see Tao being corrected by
+ChatGPT.</p>
+</aside>
+</section>
+<section id="jared-lichtman-april" class="slide level1">
+<h1>Jared Lichtman, April</h1>
+<figure>
+<img src="lichtman.jpg" height=200px/>
+<figcaption>
+Jared Lichtman
+</figcaption>
+</figure>
+<figure>
+<!-- <figure> -->
+<!-- <img src="lichtman_erdos_problem.jpg" height=200px/> -->
+<!-- <figcaption></figcaption> -->
+<!-- </figure> -->
+<!-- <figure> -->
+<img src="lichtman_erdos_message.png" height="300px"/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>This is perhaps a bit more impressive, since this problem was solved
+more or less solo by AI, and the problem was somewhat more important to
+mathematicians than the previous ones. The solution also appears to have
+made genuinely new connections between areas of mathematics. Liam here
+is Liam Price, who was able to produce the proof with ChatGPT 5.4
+Pro.</p>
+</aside>
+</section>
+<section id="at-the-start-of-2025" class="slide level1">
+<h1>At the start of 2025</h1>
+<ul>
+<li><p>AI chatbots were getting useful in getting started and getting
+unstuck</p></li>
+<li><p>AI assistants (code completion) were gaining traction</p></li>
+<li><p>Hallucinations were still quite a big problem</p></li>
+</ul>
+<aside class="notes">
+<p>Okay, back to something more like software development.</p>
+<p>Hallucinations: they often proposed to use an API call that didn’t
+really exist.</p>
+</aside>
+</section>
+<section id="the-last-six-months" class="slide level1">
+<h1>The last six months</h1>
+<ul>
+<li><p>I started hearing more about AI agents, especially Claude Code
+(released Feb 2025)</p></li>
+<li><p>I got a paid Claude account five months ago to try it</p></li>
+<li><p>It was immediately useful</p></li>
+</ul>
+<aside class="notes">
+<p>The paid account comes with a certain amount of usage, which resets
+periodically.</p>
+<p>What is Claude Code? Drops in terminal, reads all your code you give
+it access to, writes CLAUDE.md, has subagents (“code reviewer”), modes
+(“planning”), branching memory, skills (“simplify”)</p>
+<p>Basically the rest of the talk I will be talking about Claude Code,
+because that’s what I know.</p>
+</aside>
+</section>
+<section id="initial-claude-code-experiments" class="slide level1">
+<h1>Initial Claude Code experiments</h1>
+<ul>
+<li class="fragment"><p>“What am I bad at?”</p></li>
+<li class="fragment"><p>Modern frontend stuff</p></li>
+<li class="fragment"><p>Gnarly PHP embedded in eg. Wordpress</p></li>
+<li class="fragment"><p>“It knows almost everything, and it can
+google”</p></li>
+</ul>
+<aside class="notes">
+<p>Okay, this is relatively mundane, but still really useful</p>
+<p>By everything I don’t mean just every programming language,
+databases, libraries, frameworks… but also linguistics, mathematics,
+physics, biology, etc.</p>
+</aside>
+</section>
+<section id="the-last-three-months" class="slide level1">
+<h1>The last three months</h1>
+<p>Around December, there was a dramatic improvement.</p>
+<blockquote>
+<p>“Like many others I rapidly went from about 80% manual + autocomplete
+coding and 20% agents in November, to 80% agent coding and 20% edits +
+touchups in December. I really am mostly programming in English now”<br>
+- Andrej Karpathy, Dec 2025</p>
+</blockquote>
+<aside class="notes">
+<p>What exactly changed then? It’s not 100% clear, but probably one
+major thing was the release of Claude Opus 4.5 on November 24th 2025.
+Though I found Sonnet 4.5 (September 29th) to be dramatically useful
+too. I think part of it is advances in Claude Code, the software that is
+often used to do programming with Claude models. And perhaps also an
+increase in awareness of the model abilities.</p>
+<p>(Of course, though we know model release dates, we don’t really know
+what’s going on behind the scenes. Most people seem to believe that the
+models sometimes get randomly better or worse due to compute
+constraints.)</p>
+</aside>
+</section>
+<section id="my-christmas-holiday-project-chess-endgame-tablebases"
+class="slide level1">
+<h1>My Christmas holiday project: chess endgame tablebases</h1>
+<figure style="margin: 0;">
+<img src="tablebases.png" height=220px/>
+<figcaption>
+</figcaption>
+</figure>
+<figure style="margin: 0;">
+<img src="kingpawn3.png" height=200px/>
+<figcaption>
+Drawn in regular chess, white wins in stalewin
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Claude Opus 4.5 had recently been released, and I was hearing tons of
+hype about it. So I decided to look at a difficult hobby project I had
+been thinking about for a long time.</p>
+<p>In computer chess, there are “endgame tablebases”, precalculated
+compressed databases of all possible combinations of a small number of
+pieces telling you the result with perfect play, and the result of each
+possible move (win/draw/loss).</p>
+<p>One thing that is sometimes debated in chess is stalemate, where one
+side has no legal moves left. In regular chess, stalemate is a draw, but
+arguably it would make more sense if stalemating your opponent would be
+a win. Many important endgames are drawn only because of stalemate, so
+we know it would change endgames a lot. But as far as I know this hasn’t
+really been quantified, so I wanted to change the code that calculates
+these tablebases to consider stalemate to be a win, and then recalculate
+the tables.</p>
+</aside>
+</section>
+<section id="my-christmas-holiday-adapting-the-syzygy-generator"
+class="slide level1">
+<h1>My Christmas holiday: adapting the Syzygy generator</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>“Run once, forget forever”</li>
+<li>47 C files, 40K lines of code</li>
+<li>Multithreaded</li>
+<li>Low-level</li>
+<li>Uncommented</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<img src="syzygy1.png" height=320px/>
+<figcaption>
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<p>Remind you of any scientific code you may have seen? The code exists
+to produce a final output, there are no “normal users”. And it’s not
+just one place in the code you have to change, <em>and</em> it’s hard to
+know when you’ve found every relevant place.</p>
+</aside>
+</section>
+<section id="my-christmas-holiday---process" class="slide level1">
+<h1>My Christmas holiday - process</h1>
+<ul>
+<li><p>Introduce project to Claude Code, instruct it to read the
+codebase and write a summary in CLAUDE.md</p></li>
+<li><p>Ask it to identify the locations in the code we need to
+modify</p></li>
+<li><p>Instruct about how to validate</p></li>
+</ul>
+<aside class="notes">
+<p>Validate: eg. we want KNNvK to be mostly a win in stalewin and draw
+in regular. It got confused when sometimes it was win in regular. I
+explained, it understood, and then it made a note!</p>
+</aside>
+</section>
+<section id="my-christmas-holiday---opus" class="slide level1">
+<h1>My Christmas holiday - Opus</h1>
+<ul>
+<li><p>Opus burned through the tokens in my “Pro” level account very
+fast</p></li>
+<li><p>I had to either work in short bursts and wait for tokens to
+refresh, or pay for more token budget</p></li>
+<li><p>I ended up spending 20 euros out of momentum</p></li>
+</ul>
+</section>
+<section id="my-christmas-holiday---claude-fails" class="slide level1">
+<h1>My Christmas holiday - Claude fails</h1>
+<ul>
+<li><p>I wanted a browsing interface to the tablebases</p></li>
+<li><p>Claude developed a Python implementation that tries to load each
+position into a Python object</p></li>
+<li><p>It would have needed many terabytes of memory even if each
+position were 1 byte, but it’s Python, they’re more like 1000
+bytes</p></li>
+</ul>
+<aside class="notes">
+<p>After calculating the 6-man stalewin tables (~10 days on my desktop).
+Claude was naive here and didn’t connect the dots.</p>
+<p>Generally: you have to tell it what to do, exactly enough. It can
+decide how to do it. But often it will choose a way that will run into
+problems later, or based on a misunderstanding of the ultimate goal. You
+have to have a pretty good idea of what you are doing.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-projects" class="slide level1">
+<h1>More ambitious work projects</h1>
+<ul>
+<li><p>Replacing a single-customer on-server Python authorization
+service with a from-scratch Node.js server with multiple
+customers</p></li>
+<li><p>Writing ambitious new features for a service that touches 5
+codebases</p></li>
+</ul>
+<aside class="notes">
+<p>Almost all code for the authorization service written by Claude, with
+close supervision and team review. The ambitious new features thing will
+be in the next slides.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink1.png" height=520px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>I know these are the worst slides ever… But I can’t think of another
+way to show how this works.</p>
+<p>Here I’m developing a feature that involves not just mink-frontend
+and mink-backend, but sparv, korp, our provisioning code, our
+authorization service, databases…</p>
+<p>and I’m the only one one our team developing this. This kind of thing
+can be really slow to develop.</p>
+<p>By the way, this is all open source. And this is with Claude Sonnet,
+not Opus.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project-1" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink2.png" height=440px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>After we’re generated an overview of the project, we make more notes
+about the specific feature.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project-2" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink4.png" height=560px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Here I’ve said “no” to an edit, since I wasn’t understanding what
+useMinkBackend was.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project-3" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink5.png" height=420px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Claude explains patiently.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project-4" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink6.png" height=500px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Our frontend isn’t rendering correctly, because it’s expecting
+something different from the backend than is actually coming through.
+Claude wants to add debugging prints, I say no, let’s check the endpoint
+directly.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project-5" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink7.png" height=520px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Problem identified and fixed.</p>
+</aside>
+</section>
+<section id="more-ambitious-work-project-6" class="slide level1">
+<h1>More ambitious work project</h1>
+<img src="mink8.png" height=520px/>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>Here Claude has gotten the wrong idea. It thinks I’m trying to make
+sure a certain class of annotators is always visible, when I wanted to
+make sure the changes we were making would not cause them to become
+visible. So I explain that I want a hiding configuration and also a
+disabling configuration, at different levels of the backend logic.</p>
+</aside>
+</section>
+<section id="hierarchy-of-tool-agency" class="slide level1">
+<h1>Hierarchy of tool agency</h1>
+<ul>
+<li><p>Level 1: Pasting from chatbot window</p></li>
+<li><p>Level 2: Autocomplete in IDE</p></li>
+<li><p>Level 3: Interacting with agent in a feedback loop</p>
+<ul>
+<li>3a: You inspect the code continuously</li>
+<li>3b: You just inspect the outcome (“vibe coding”)</li>
+</ul></li>
+<li><p>Level 4: Agent in a harness</p></li>
+</ul>
+<aside class="notes">
+<p>How I personally am thinking about how much initiative a tool is
+taking.</p>
+<p>Agent in a harness: the agent loops autonomously on a broad goal, and
+also collects messages and information from its environment
+continuously. A simple harness is actually how the Knuth thing from
+slide 2 got done!</p>
+</aside>
+</section>
+<section id="implications" class="slide level1">
+<h1>Implications</h1>
+<ul>
+<li><p>A small team can now undertake big projects, or fearlessly try
+big changes</p></li>
+<li><p>Experimenting is much cheaper</p></li>
+<li><p>A really motivated individual can do <em>a lot</em></p></li>
+</ul>
+<aside class="notes">
+<p>I’m old and tired with 3 kids, so I don’t actually have the energy to
+do that much with it, but it still makes me way more effective. If
+things were different…</p>
+</aside>
+</section>
+<section id="caveats" class="slide level1">
+<h1>Caveats</h1>
+<ul>
+<li><p>Security</p></li>
+<li><p>Skill atrophy / loss of understanding</p></li>
+<li><p>Context collapse / compaction</p></li>
+</ul>
+<aside class="notes">
+<p>Claude generally asks for permission to do things, so it doesn’t
+automatically just read everything it has access to. But if you want to
+be very safe, run it on a VM, separate user account, or keep sensitive
+data otherwise inaccessible.</p>
+<p>It will for example automatically try to see if it’s in a github
+repository and connect to remote hosts, so it will try to unlock your
+ssh keys for that. You can refuse, but if you let it do so, consider
+having a separate ssh key for git access (separate keys can be prudent
+anyway). With naive use you <em>are</em> giving access to your SSH keys
+to Anthropic.</p>
+<p>Using these tools does start to degrade your skills, and as a team
+you have to review a lot of code, and even then it can easily happen
+that you don’t understand your own codebase anymore.</p>
+<p>The models have a certain amount of context, and when that runs out
+(easy when it’s ingesting a lot code and doing a lot of reasoning), the
+context gets compacted. At that point, a lot is lost, and it’s sometimes
+difficult moving forward without reintroducing a lot of context, might
+be better off just starting fresh. You can pay for more context
+though.</p>
+<p>By the way, in the models with more context, like 1M tokens in Opus,
+reasoning / recall seems to start degrade already when the context is
+30-40% full.</p>
+<p>Coding together is possible, but if you and CC both edit code, you
+have to tell it what you did. Otherwise it will start getting
+confused.</p>
+</aside>
+</section>
+<section id="non-coding-uses" class="slide level1">
+<h1>Non-coding uses</h1>
+<ul>
+<li><p>Integration with MCP servers (Model Context Protocol), giving it
+access to various data stores</p></li>
+<li><p>General data access using the file system</p></li>
+<li><p>Hooks, integrations (GitHub, messaging services, Excel,
+Powerpoint), … (OpenClaw)</p></li>
+</ul>
+<aside class="notes">
+<p>(I sometimes get it to read books for me)</p>
+</aside>
+</section>
+<section id="current-economics" class="slide level1">
+<h1>Current economics</h1>
+<img src="subsidy.jpg" height=520px/>
+<figcaption>
+Subscriptions currently feel like a great deal, because they are!
+(Forbes)
+</figcaption>
+</figure>
+</section>
+<section id="being-a-power-user" class="slide level1">
+<h1>Being a power user</h1>
+<p>“There’s a new programmable layer of abstraction to master […]
+agents, subagents, their prompts, contexts, memory, modes, permissions,
+tools, plugins, skills, hooks, MCP, LSP, slash commands, workflows, IDE
+integrations, and a need to build an all-encompassing mental model for
+strengths and pitfalls of fundamentally stochastic, fallible,
+unintelligible and changing entities suddenly intermingled with what
+used to be good old fashioned engineering.”<br/> - Andrej Karpathy, Dec
+2025</p>
+<aside class="notes">
+<p>My take: it is a whole new way of thinking and working, but I
+actually don’t think you need to become so much of an expert in these
+things. It’s very much like working with a human, you have to see things
+from its point of view and help it help you.</p>
+</aside>
+</section>
+<section id="the-tools-are-also-implemented-in-themselves"
+class="slide level1">
+<h1>The tools are also implemented in themselves</h1>
+<figure>
+<img src="statusline.png" >
+<figcaption>
+The “slash command” /statusline is told in natural language what to do
+</figcaption>
+</figure>
+<aside class="notes">
+<p>More and more, these tools themselves are being implemented in
+themselves. For example, in Claude Code, there’s a command /statusline
+to edit the status line, and the way you use it you just tell it what
+you want there.</p>
+</aside>
+</section>
+<section id="sneak-peek-these-tools-at-csc" class="slide level1">
+<h1>Sneak peek: these tools at CSC</h1>
+<ul>
+<li><p>I paid out of pocket at first, now I’ve made my first expense
+claim</p></li>
+<li><p>There is an project underway to take Claude Code into use
+officially</p></li>
+<li><p>Expected completion in June, compliance &amp; risk assessment
+ongoing</p></li>
+</ul>
+</section>
+<section id="sneak-peek-these-tools-at-csc-1" class="slide level1">
+<h1>Sneak peek: these tools at CSC</h1>
+<ul>
+<li><p>“Per seat” team plan licenses for coders, expensed to cost
+objects</p></li>
+<li><p>Recommendation to run inside a container or VM</p></li>
+</ul>
+</section>
+<section id="sneak-peek-these-tools-at-csc-2" class="slide level1">
+<h1>Sneak peek: these tools at CSC</h1>
+<figure>
+<img src="claude_container.png">
+<figcaption>
+Proposed container setup
+</figcaption>
+</figure>
+</section>
+<section id="bonus-slides-how-the-knuth-problem-was-solved"
+class="slide level1">
+<h1>Bonus slides: how the Knuth problem was solved</h1>
+<figure>
+<img src="claudes_cycles_2.png" >
+<figcaption>
+</figcaption>
+</figure>
+</section>
+<section id="bonus-slides-how-the-knuth-problem-was-solved-1"
+class="slide level1">
+<h1>Bonus slides: how the Knuth problem was solved</h1>
+<figure>
+<img src="claudes_cycles_3.png" >
+<figcaption>
+</figcaption>
+</figure>
+</section>
+<section id="bonus-slides-how-the-knuth-problem-was-solved-2"
+class="slide level1">
+<h1>Bonus slides: how the Knuth problem was solved</h1>
+<figure>
+<img src="claudes_cycles_4.png" >
+<figcaption>
+</figcaption>
+</figure>
+</section>
+<section id="image-credits" class="slide level1">
+<h1>Image credits</h1>
+<div class="compress">
+<p>Don Knuth: Richard Morris /
+https://www.red-gate.com/simple-talk/opinion/geek-of-the-week/donald-knuth-geek-of-the-week/</p>
+<p>Terence Tao: David Esquivel/UCLA /
+https://newsroom.ucla.edu/stories/terence-tao-science-stability-future-of-math-washington-post</p>
+<p>Forbes article:
+https://www.forbes.com/sites/annatong/2026/03/05/cursor-goes-to-war-for-ai-coding-dominance/</p>
+</div>
+<!--  -->
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
